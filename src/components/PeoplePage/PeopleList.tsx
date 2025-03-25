@@ -17,14 +17,10 @@ export const PeopleList: React.FC<Props> = ({ people }) => {
       <tr
         data-cy="person"
         key={person.name}
-        className={selected === person.name && 'has-background-warning'}
+        className={selected === person.name ? 'has-background-warning' : ''}
       >
         <td>
-          <PersonLink
-            person={person}
-            selected={selected}
-            onSelected={setSelected}
-          />
+          <PersonLink person={person} onSelected={setSelected} />
         </td>
 
         <td>{person.sex}</td>
@@ -32,22 +28,14 @@ export const PeopleList: React.FC<Props> = ({ people }) => {
         <td>{person.died}</td>
         <td>
           {mother ? (
-            <PersonLink
-              person={mother}
-              selected={selected}
-              onSelected={setSelected}
-            />
+            <PersonLink person={mother} onSelected={setSelected} />
           ) : (
             person.motherName || '-'
           )}
         </td>
         <td>
           {father ? (
-            <PersonLink
-              person={father}
-              selected={selected}
-              onSelected={setSelected}
-            />
+            <PersonLink person={father} onSelected={setSelected} />
           ) : (
             person.fatherName || '-'
           )}

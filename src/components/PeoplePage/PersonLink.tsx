@@ -3,19 +3,14 @@ import { Person } from '../../types';
 import { Link } from 'react-router-dom';
 type Props = {
   person: Person;
-  selected: boolean;
   onSelected: () => void;
 };
 
-export const PersonLink: React.FC<Props> = ({
-  person,
-  //selected,
-  onSelected,
-}) => {
+export const PersonLink: React.FC<Props> = ({ person, onSelected }) => {
   return (
     <Link
-      to={`#/people/${person.slug}`}
-      className={person.sex === 'f' && 'has-text-danger'}
+      to={`/people/${person.slug}`}
+      className={person.sex === 'f' ? 'has-text-danger' : ''}
       onClick={() => onSelected(person.name)}
     >
       {person.name}
