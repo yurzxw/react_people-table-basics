@@ -24,7 +24,8 @@ export const Navigation = () => {
 
           <Link
             className={classNames('navbar-item', {
-              'has-background-grey-lighter': activeLink.pathname === '/people',
+              'has-background-grey-lighter':
+                activeLink.pathname.startsWith('/people'),
             })}
             to="/people"
           >
